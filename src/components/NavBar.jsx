@@ -5,6 +5,23 @@ export const NavBar = () => {
   const { user, login, logout } = useAuth();
   const navigate = useNavigate();
 
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/auth/guest`
+      );
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || "Login Failed");
+      }
+      const data = await response.json();
+      login(data.token, data.user);
+      navigate("/");
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <div className="flex justify-between  p-4 max-[300px]:flex-col items-center ">
       <Link
@@ -27,12 +44,20 @@ export const NavBar = () => {
             </Link>
           </div>
         ) : (
-          <Link
-            to={"/"}
-            className="text-white bg-blue-500 hover:bg-blue-700 rounded-full text-sm text-center px-4 py-2 cursor-pointer "
-          >
-            Login
-          </Link>
+          <>
+            <Link
+              to={"/"}
+              className="text-white bg-blue-500 hover:bg-blue-700 rounded-full text-sm text-center px-4 py-2 cursor-pointer "
+            >
+              Login
+            </Link>
+            <Link
+              onClick={() => handleSubmit()}
+              className="text-white bg-blue-500 hover:bg-blue-700 rounded-full text-sm text-center px-4 py-2 cursor-pointer"
+            >
+              Guest mode
+            </Link>
+          </>
         )}
       </div>
     </div>
