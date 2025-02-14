@@ -12,4 +12,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  preview: {
+    host: true,
+    port: 5173,
+    allowedHosts: [
+      "myblogadmin-production.up.railway.app",
+      "*.up.railway.app", // This will allow all railway subdomains
+    ],
+  },
 });
