@@ -16,9 +16,9 @@ const AIPost = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmitNewPost = () => {
+  const handleSubmitNewPost = async () => {
     try {
-      sendNewPost({ title: title, content: generatedContent });
+      await sendNewPost({ title: title, content: generatedContent });
       navigate("/");
     } catch (error) {
       console.error(error.message);

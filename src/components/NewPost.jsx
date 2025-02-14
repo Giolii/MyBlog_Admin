@@ -21,9 +21,9 @@ const NewPost = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     try {
-      sendNewPost(newPost);
+      await sendNewPost(newPost);
       navigate("/");
     } catch (error) {
       console.error(error.message);
