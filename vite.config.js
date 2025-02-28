@@ -15,6 +15,6 @@ export default defineConfig({
   preview: {
     host: true,
     port: 5173,
-    allowedHosts: ["*.up.railway.app"],
+    allowedHosts: ["*.up.railway.app", "myblogadmin-production.up.railway.app"],
   },
 });
