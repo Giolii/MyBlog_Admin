@@ -5,6 +5,8 @@
   <h3>A full-featured blog management system</h3>
 </div>
 
+Backend Repository: [BlogAdmin](https://github.com/Giolii/MyBlog_Backend)
+
 ## 📋 Overview
 
 BlogAdmin is a comprehensive blog management application built with React, designed to simplify content creation and management. It provides a clean, intuitive interface for writing, editing, and publishing blog posts, with advanced features including AI-assisted content generation.
